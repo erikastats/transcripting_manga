@@ -12,7 +12,7 @@ ui <- function(id){
   
   tagList(
     h3("Table"),
-    reactable$reactableOutput(ns("table"))
+    reactable$reactableOutput(ns("table")) 
   )
 }
 
