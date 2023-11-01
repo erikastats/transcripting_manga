@@ -2,7 +2,7 @@
 
 box::use(
   reactable,
-  shiny[h3, moduleServer, NS, tagList]
+  shiny[h3, moduleServer, NS, tagList] 
 )
 
 #' @export
