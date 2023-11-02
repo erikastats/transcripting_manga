@@ -2,6 +2,7 @@
 library(dplyr)
 library(echarts4r)
 library(htmlwidgets)
+library(purrr)
 library(reactable)
 library(rhino)
 library(tidyr)

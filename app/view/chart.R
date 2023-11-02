@@ -5,12 +5,16 @@ box::use(
   shiny[h3, moduleServer, NS, tagList]
 )
 
+box::use(
+  app/logic/chart_utils[label_formatter]
+)
+
 #' @export
 ui <-  function(id){
   ns <-  NS(id)
   
-  tagList(
-    h3("Chart"),
+div(
+  class = "component-box",
     echarts4r$echarts4rOutput(ns("chart"))
     )
   
@@ -24,7 +28,11 @@ server <- function(id, data){
         echarts4r$group_by(Species) |>
         echarts4r$e_chart(x = Year) |>
         echarts4r$e_line(Population) |>
-        echarts4r$e_x_axis(Year) |>
+        echarts4r$e_x_axis(Year,
+                           axisLabel = list(
+                             formatter = label_formatter
+                           )
+                          ) |>
         echarts4r$e_tooltip()
     )
     

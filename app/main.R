@@ -1,3 +1,5 @@
+# app/main.R
+
 box::use(
   shiny[bootstrapPage, div, moduleServer, NS, renderUI, tags, uiOutput],
   rhino[rhinos]
@@ -13,9 +15,11 @@ ui <- function(id) {
   ns <- NS(id)
   
   bootstrapPage(
+    div(class= "components-container",
     # uiOutput(ns("message"))
     table$ui(ns("table")),
     chart$ui(ns("chart"))
+    )
   )
   
 }

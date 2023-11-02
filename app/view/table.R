@@ -2,7 +2,11 @@
 
 box::use(
   reactable,
-  shiny[h3, moduleServer, NS, tagList] 
+  shiny[h3, moduleServer, NS] 
+)
+
+box::use(
+  app/logic/data_transformation[transform_data]
 )
 
 #' @export
@@ -10,18 +14,20 @@ box::use(
 ui <- function(id){
   ns <- NS(id)
   
-  tagList(
-    h3("Table"),
+  div( class = "component-box",
     reactable$reactableOutput(ns("table")) 
   )
 }
 
 #' @export
 
-server <- function(id, data){
+server <- function(id, data){ 
   moduleServer(id, function(input, output, session){
     output$table <- reactable$renderReactable(
-      reactable$reactable(data)
+      
+      data |>
+        transform_data() |>
+        reactable$reactable()
     )
   })
 }
