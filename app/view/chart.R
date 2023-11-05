@@ -2,7 +2,7 @@
 
 box::use(
   echarts4r,
-  shiny[h3, moduleServer, NS, tagList]
+  shiny[div, moduleServer, NS]
 )
 
 box::use(

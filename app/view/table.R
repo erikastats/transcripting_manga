@@ -2,7 +2,7 @@
 
 box::use(
   reactable,
-  shiny[h3, moduleServer, NS] 
+  shiny[div, moduleServer, NS] 
 )
 
 box::use(
